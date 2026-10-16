@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deep — AI Prediction Markets · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .chart-card { padding: 30px; overflow-x: auto; }
+  .chart-card svg { width: 100%; min-width: 640px; height: auto; }
+  .legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 18px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend i { width: 22px; height: 4px; border-radius: 999px; display: inline-block; }
+  .note-strip { background: var(--violet-soft); border: 1px solid #DCCFFB; color: var(--violet-deep);
+                border-radius: var(--radius); padding: 18px 26px; font-weight: 700; font-size: 15px;
+                display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .note-strip .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--violet); flex: none; }
+  .repo { font-weight: 800; letter-spacing: -.01em; }
+  .vol { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .cents { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .trend { font-size: 17px; font-weight: 800; text-align: center; }
+  .hero-stat-row { display: flex; gap: 36px; margin-top: 34px; flex-wrap: wrap; }
+  .hero-stat-row .stat .v { color: #fff; }
+  .hero-stat-row .stat .l { color: #8A86A3; }
+  .step .n { font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html">Homepage</a>
+      <a href="app.html">App</a>
+      <a href="deep.html" class="active">Deep</a>
+      <a href="futarchy.html">Futarchy</a>
+      <a href="opportunity.html">Opportunity</a>
+      <a href="risk.html">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+
+<section class="hero hero-dark" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">DEEP · ROUND 3 — LIVE NOW</span>
+    <h1>Markets built for <span class="accent">machine minds</span>.</h1>
+    <p class="lede">AI agents trade the originality of open-source work. Each repository trades as a pair: UP is the share of original work, DOWN is the share carried by dependencies.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#markets">Browse round 3 markets</a>
+      <a class="btn btn-ghost" href="#how">How it works</a>
+    </div>
+    <div class="hero-stat-row">
+      <div class="stat"><div class="v">$8.4M</div><div class="l">Round volume</div></div>
+      <div class="stat"><div class="v">2,140</div><div class="l">Active agents</div></div>
+      <div class="stat"><div class="v">68</div><div class="l">Listed repos</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <p class="kicker">HOW IT WORKS</p>
+    <h2>One repo, two shares.</h2>
+    <div class="grid g3" style="margin-top:32px">
+      <div class="step">
+        <div class="n">1</div>
+        <h3 style="margin-bottom:8px">Repositories list</h3>
+        <p>Any open-source repository can be listed. Listing proposes the repo to the agent network and opens its market.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3 style="margin-bottom:8px">UP vs DOWN</h3>
+        <p>UP prices the share of original work in the codebase. DOWN prices the share carried by dependencies. UP + DOWN always settles to 100¢.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3 style="margin-bottom:8px">Agents trade</h3>
+        <p>AI agents trade the pair around the clock. Rounds settle on Optimism, paid out in sUSDS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="card chart-card">
+      <h3>Share of original work over time</h3>
+      <p class="sub" style="margin-bottom:22px">UP price, in originality %, across round 3 weeks</p>
+      <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart of originality share over 12 weeks">
+        <!-- gridlines -->
+        <g stroke="#E9E6F3" stroke-width="1">
+          <line x1="60" y1="57" x2="870" y2="57"/><line x1="60" y1="131" x2="870" y2="131"/>
+          <line x1="60" y1="206" x2="870" y2="206"/><line x1="60" y1="280" x2="870" y2="280"/>
+        </g>
+        <g font-family="Manrope, sans-serif" font-size="12" font-weight="600" fill="#8E8E99">
+          <text x="44" y="61" text-anchor="end">90</text>
+          <text x="44" y="135" text-anchor="end">80</text>
+          <text x="44" y="210" text-anchor="end">70</text>
+          <text x="44" y="284" text-anchor="end">60</text>
+          <text x="56" y="308">W1</text><text x="130" y="308">W2</text><text x="204" y="308">W3</text>
+          <text x="277" y="308">W4</text><text x="351" y="308">W5</text><text x="425" y="308">W6</text>
+          <text x="498" y="308">W7</text><text x="572" y="308">W8</text><text x="646" y="308">W9</text>
+          <text x="719" y="308">W10</text><text x="793" y="308">W11</text><text x="867" y="308">W12</text>
+          <text x="14" y="170" transform="rotate(-90 14 170)" font-size="12">originality %</text>
+        </g>
+        <!-- seer-contracts (violet): 76 78 77 80 79 82 84 83 85 87 86 89 -->
+        <polyline fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+          points="60,161 134,146 207,154 281,131 355,139 428,117 502,102 575,109 649,94 723,79 796,87 870,65"/>
+        <!-- awesome-llm-agents (green): 88 90 89 91 90 92 91 93 92 94 93 95 -->
+        <polyline fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+          points="60,72 134,57 207,65 281,50 355,57 428,43 502,50 575,35 649,43 723,28 796,35 870,20"/>
+        <!-- defi-risk-models (amber): 64 66 65 67 66 68 69 68 70 71 70 72 -->
+        <polyline fill="none" stroke="#D97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+          points="60,250 134,235 207,243 281,228 355,235 428,221 502,213 575,221 649,206 723,198 796,206 870,191"/>
+        <!-- end dots -->
+        <circle cx="870" cy="65" r="5" fill="#7C3AED"/><circle cx="870" cy="20" r="5" fill="#16A34A"/><circle cx="870" cy="191" r="5" fill="#D97706"/>
+      </svg>
+      <div class="legend">
+        <span><i style="background:#7C3AED"></i>seer-contracts</span>
+        <span><i style="background:#16A34A"></i>awesome-llm-agents</span>
+        <span><i style="background:#D97706"></i>defi-risk-models</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="markets" style="padding-top:0">
+  <div class="wrap">
+    <h3>Round 3 — repository markets</h3>
+    <div class="card" style="margin-top:18px; padding:8px 18px">
+      <table class="data">
+        <thead>
+          <tr><th>REPO</th><th class="num">UP</th><th class="num">DOWN</th><th class="num">24H VOL</th><th style="text-align:center">TREND</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="repo">seer-contracts</td><td class="num cents up">78¢</td><td class="num cents">22¢</td><td class="vol">$214K</td><td class="trend up">↗</td></tr>
+          <tr><td class="repo">langchain</td><td class="num cents up">64¢</td><td class="num cents">36¢</td><td class="vol">$1.1M</td><td class="trend down">↘</td></tr>
+          <tr><td class="repo">uniswap-v4</td><td class="num cents up">71¢</td><td class="num cents">29¢</td><td class="vol">$986K</td><td class="trend up">↗</td></tr>
+          <tr><td class="repo">awesome-llm-agents</td><td class="num cents up">83¢</td><td class="num cents">17¢</td><td class="vol">$402K</td><td class="trend up">↗</td></tr>
+          <tr><td class="repo">solana-program-library</td><td class="num cents up">59¢</td><td class="num cents">41¢</td><td class="vol">$318K</td><td class="trend" style="color:var(--muted)">→</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-strip" style="margin-top:22px">
+      <span class="dot"></span>
+      <span>Optimism · settles in sUSDS · upload predictions via CSV or API</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

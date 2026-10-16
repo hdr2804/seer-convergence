@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seer — See What the Markets Believe · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .stats-dark { background: var(--dark-2); border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); padding: 44px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stats-grid .stat .v { color: #fff; font-size: 34px; }
+  .stats-grid .stat .l { color: #8A86A3; }
+  .trust-badges { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+  .trust-badges .badge { font-size: 12px; padding: 8px 18px; }
+  .trust-note { margin-top: 18px; font-size: 15px; font-weight: 700; color: var(--ink-2); }
+  .trust-note .accent { color: var(--violet-deep); }
+  .cta-dark { position: relative; overflow: hidden; background: radial-gradient(1200px 500px at 50% 120%, #241a52 0%, var(--dark) 55%), var(--dark); color: #fff; text-align: center; border-radius: 0; }
+  .cta-dark .wrap { position: relative; z-index: 2; }
+  .eco-card .arrow { margin-top: 14px; font-weight: 800; font-size: 14px; color: var(--violet-deep); }
+  .prim-example { margin-top: 12px; font-size: 13.5px; color: var(--muted); font-weight: 600; }
+  .prim-example b { color: var(--ink-2); }
+  @media (max-width: 900px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ============ ECOSYSTEM BAR ============ -->
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html" class="active">Homepage</a>
+      <a href="app.html">App</a>
+      <a href="deep.html">Deep</a>
+      <a href="futarchy.html">Futarchy</a>
+      <a href="opportunity.html">Opportunity</a>
+      <a href="risk.html">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero hero-dark" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">SEER PROTOCOL — ELECTRIC FOUNDATION IDENTITY</span>
+    <h1>SEE WHAT THE <span class="accent">MARKETS</span> BELIEVE</h1>
+    <p class="lede">Prediction markets for distilled human judgement. Create, trade and farm predictions on Gnosis and Ethereum — every opinion priced, every outcome settled onchain.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="app.html">Launch the App</a>
+      <a class="btn btn-ghost" href="#ecosystem">Explore the ecosystem</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<div class="stats-dark">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="v">$48M+</div><div class="l">Volume settled</div></div>
+      <div class="stat"><div class="v">12K+</div><div class="l">Markets created</div></div>
+      <div class="stat"><div class="v">2</div><div class="l">Chains — Gnosis &amp; Ethereum</div></div>
+      <div class="stat"><div class="v">100%</div><div class="l">Onchain</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ECOSYSTEM ============ -->
+<section id="ecosystem">
+  <div class="wrap">
+    <div class="kicker">ONE PROTOCOL · SIX INTERFACES</div>
+    <h2>One family, six ways to see.</h2>
+    <p class="sub">Seer is the protocol beneath the apps. One market engine, one liquidity layer — six interfaces built for six kinds of questions.</p>
+    <div class="grid g3" style="margin-top:34px">
+      <a class="card eco-card" href="app.html">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="7" fill="none" stroke="#6C2BD9" stroke-width="3"/></svg>
+        </div>
+        <h3>App</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">The general explorer for every Seer market — Seer's Etherscan.</p>
+        <div class="arrow">Open the App →</div>
+      </a>
+      <a class="card eco-card" href="deep.html">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><rect x="4" y="4" width="14" height="14" rx="3" fill="none" stroke="#6C2BD9" stroke-width="3"/></svg>
+        </div>
+        <h3>Deep</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">Many-outcome markets built for AI agents to trade.</p>
+        <div class="arrow">Open Deep →</div>
+      </a>
+      <a class="card eco-card" href="futarchy.html">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="11,3 19,18 3,18" fill="none" stroke="#6C2BD9" stroke-width="3" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Futarchy</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">Conditional markets that forecast if a proposal passes or fails.</p>
+        <div class="arrow">Open Futarchy →</div>
+      </a>
+      <a class="card eco-card" href="opportunity.html">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11 2 L19 11 L11 20 L3 11 Z" fill="none" stroke="#6C2BD9" stroke-width="3" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Opportunity</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">Traders forecast which submissions get selected.</p>
+        <div class="arrow">Open Opportunity →</div>
+      </a>
+      <a class="card eco-card" href="risk.html">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><polygon points="11,2 19,7.5 19,14.5 11,20 3,14.5 3,7.5" fill="none" stroke="#6C2BD9" stroke-width="3" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Risk Pricing</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">Compare market estimates of risk across DeFi assets.</p>
+        <div class="arrow">Open Risk Pricing →</div>
+      </a>
+      <a class="card eco-card" href="index.html#ecosystem">
+        <div class="icon-badge">
+          <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="4" fill="#6C2BD9"/><circle cx="11" cy="11" r="8.5" fill="none" stroke="#6C2BD9" stroke-width="2" opacity=".4"/></svg>
+        </div>
+        <h3>Homepage</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">This page — the protocol's front door.</p>
+        <div class="arrow">You're here →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKET PRIMITIVES ============ -->
+<section style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="kicker">MARKET PRIMITIVES</div>
+    <h2>Every kind of question, one market engine.</h2>
+    <p class="sub">Four primitives cover every shape of belief. Pick one, write the question, and the protocol builds the market.</p>
+    <div class="grid g2" style="margin-top:34px">
+      <div class="card">
+        <h3>Categorical</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">A single yes-or-no question with two outcomes: it either happens or it doesn't.</p>
+        <p class="prim-example"><b>Example:</b> Will Ethereum ship the Glamsterdam upgrade before July 2027?</p>
+      </div>
+      <div class="card">
+        <h3>Multi-Categorical</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">One question with many possible winners — the market picks which outcome lands.</p>
+        <p class="prim-example"><b>Example:</b> Which L2 leads by TVL in Q2 2027 — Arbitrum, Base, Optimism, or Other?</p>
+      </div>
+      <div class="card">
+        <h3>Scalar</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">A numeric range market: trade the probability that a value lands between two bounds.</p>
+        <p class="prim-example"><b>Example:</b> Where will the Fed funds rate sit at the end of Q1 2027?</p>
+      </div>
+      <div class="card">
+        <h3>Multi-Scalar</h3>
+        <p class="sub" style="font-size:15px;margin-top:8px">Several numeric ranges at once — forecast a whole curve, not just a point.</p>
+        <p class="prim-example"><b>Example:</b> Bitcoin's closing price on the last day of each quarter of 2026?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section>
+  <div class="wrap">
+    <div class="kicker">TRUST LAYER</div>
+    <h2>Secured by design, not by promise.</h2>
+    <p class="sub">Three battle-tested layers do the heavy lifting — markets, arbitration and settlement — so the protocol stays credibly neutral.</p>
+    <div class="trust-badges">
+      <span class="badge">Secured by Kleros</span>
+      <span class="badge">Resolved by Reality.eth</span>
+      <span class="badge">Conditional Tokens Framework</span>
+    </div>
+    <p class="trust-note">Every opinion has a price. <span class="accent">Seer puts it onchain.</span></p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-dark" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap" style="padding:96px 28px">
+    <h2>Start seeing.</h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto;text-align:center">The protocol is live. The markets are open. Bring your beliefs — or bring your bots.</p>
+    <div class="hero-cta" style="justify-content:center">
+      <a class="btn btn-primary" href="app.html">Launch the App</a>
+      <a class="btn btn-ghost" href="#ecosystem">Explore the ecosystem</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

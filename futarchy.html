@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futarchy — Decide by Prediction · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .verdict { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+             box-shadow: var(--shadow); padding: 26px 30px; margin-top: 20px;
+             display: flex; gap: 18px; align-items: flex-start; }
+  .verdict .mark { width: 46px; height: 46px; border-radius: 50%; background: #E7F6EC; color: var(--good);
+                   font-weight: 800; font-size: 22px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .verdict p.small { font-size: 13px; color: var(--muted); margin-top: 6px; font-weight: 600; }
+  .dual .chartline { margin-top: 14px; }
+  .dual .chartline svg { width: 100%; height: auto; }
+  .dual .unit { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--ink-2); margin-top: 2px; }
+  .mkt-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+  .ends { font-size: 12.5px; font-weight: 700; color: var(--muted); }
+  .mkt-title { font-weight: 800; font-size: 17px; letter-spacing: -.01em; }
+  .mkt-org { font-size: 13px; font-weight: 700; color: var(--ink-2); }
+  .mkt-metric { font-size: 13px; color: var(--ink-2); }
+  .mkt-metric code.tick { font-size: 12px; }
+  .hero-note { color: #8A86A3; font-size: 13px; margin-top: 16px; max-width: 560px; }
+</style>
+</head>
+<body>
+
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html">Homepage</a>
+      <a href="app.html">App</a>
+      <a href="deep.html">Deep</a>
+      <a href="futarchy.html" class="active">Futarchy</a>
+      <a href="opportunity.html">Opportunity</a>
+      <a href="risk.html">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+
+<section class="hero hero-dark" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">FUTARCHY</span>
+    <h1>Markets know better <span class="accent">than experts</span>.</h1>
+    <p class="lede">Conditional markets forecast what a chosen success metric looks like if a proposal passes — versus if it does not. Decide by prediction, not persuasion.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#forecast">See a live forecast</a>
+      <a class="btn btn-ghost" href="#milestones">Active milestones</a>
+    </div>
+    <p class="hero-note">Proposals, metrics, and market outcomes resolve onchain. Demo mockup.</p>
+  </div>
+</section>
+
+<section id="forecast">
+  <div class="wrap">
+    <p class="kicker">CONDITIONAL FORECAST</p>
+    <h2>One proposal, two futures.</h2>
+    <p class="sub">Sample: “Should the DAO allocate 2M DAI to the liquidity program?” — predicted protocol revenue, 12 months out.</p>
+
+    <div class="dual" style="margin-top:32px">
+      <div class="pass">
+        <h4>IF THE PROPOSAL PASSES</h4>
+        <div class="big">$4.8M</div>
+        <div class="unit">PREDICTED REVENUE · 12 MONTHS</div>
+        <div class="chartline">
+          <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Revenue forecast if proposal passes, rising">
+            <path d="M8,100 L34,95 L60,90 L86,85 L111,80 L137,75 L163,68 L189,60 L214,53 L240,45 L266,33 L292,20 L292,112 L8,112 Z"
+                  fill="#16A34A" opacity=".14"/>
+            <polyline fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+              points="8,100 34,95 60,90 86,85 111,80 137,75 163,68 189,60 214,53 240,45 266,33 292,20"/>
+            <circle cx="292" cy="20" r="4.5" fill="#16A34A"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rej">
+        <h4>IF IT IS REJECTED</h4>
+        <div class="big">$3.1M</div>
+        <div class="unit">PREDICTED REVENUE · 12 MONTHS</div>
+        <div class="chartline">
+          <svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Revenue forecast if proposal is rejected, flat">
+            <path d="M8,105 L34,108 L60,105 L86,110 L111,108 L137,110 L163,105 L189,108 L214,110 L240,108 L266,105 L292,105 L292,112 L8,112 Z"
+                  fill="#DC2626" opacity=".12"/>
+            <polyline fill="none" stroke="#DC2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+              points="8,105 34,108 60,105 86,110 111,108 137,110 163,105 189,108 214,110 240,108 266,105 292,105"/>
+            <circle cx="292" cy="105" r="4.5" fill="#DC2626"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="mark">✓</div>
+      <div>
+        <h3>Market recommendation: PASS — the market expects +$1.7M (+55%) revenue if the proposal passes.</h3>
+        <p class="small">Forecasts update as traders take positions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="milestones" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">ACTIVE MILESTONES</p>
+    <h2>Forecasts in motion.</h2>
+    <div class="grid g3" style="margin-top:32px">
+      <div class="card mkt">
+        <div><div class="mkt-title">Liquidity mining program Q1</div>
+        <div class="mkt-org">Helios DAO</div></div>
+        <div class="mkt-metric">Success metric: <code class="tick">TVL ≥ $25M</code></div>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">PASS</span><div class="obar"><i class="o-yes" style="width:78%"></i><i class="o-no" style="width:22%"></i></div><span class="pct">78%</span></div>
+        </div>
+        <div class="mkt-card-foot"><span class="badge chain">Gnosis</span><span class="ends">Ends in 6d 14h</span></div>
+      </div>
+      <div class="card mkt">
+        <div><div class="mkt-title">Treasury diversification</div>
+        <div class="mkt-org">Metropolis Collective</div></div>
+        <div class="mkt-metric">Success metric: <code class="tick">Revenue +40%</code></div>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">PASS</span><div class="obar"><i class="o-yes" style="width:54%"></i><i class="o-no" style="width:46%"></i></div><span class="pct">54%</span></div>
+        </div>
+        <div class="mkt-card-foot"><span class="badge chain">Ethereum</span><span class="ends">Ends in 13d 2h</span></div>
+      </div>
+      <div class="card mkt">
+        <div><div class="mkt-title">Security council formation</div>
+        <div class="mkt-org">Northwind Labs</div></div>
+        <div class="mkt-metric">Success metric: <code class="tick">Incidents = 0</code></div>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">PASS</span><div class="obar"><i class="o-yes" style="width:89%"></i><i class="o-no" style="width:11%"></i></div><span class="pct">89%</span></div>
+        </div>
+        <div class="mkt-card-foot"><span class="badge chain">Optimism</span><span class="ends">Ends in 2d 9h</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker">ORGANIZATIONS</p>
+    <h2>Governing by markets.</h2>
+    <div class="card" style="margin-top:28px; padding:8px 18px">
+      <table class="data">
+        <thead>
+          <tr><th>ORGANIZATION</th><th class="num">ACTIVE</th><th class="num">PROPOSALS</th><th>CHAIN</th><th class="num">LIQUIDITY</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="repo">Helios DAO</td><td class="num">12</td><td class="num">34</td><td><span class="badge chain">Gnosis</span></td><td class="vol">$8.2M</td></tr>
+          <tr><td class="repo">Metropolis Collective</td><td class="num">7</td><td class="num">21</td><td><span class="badge chain">Ethereum</span></td><td class="vol">$4.6M</td></tr>
+          <tr><td class="repo">Northwind Labs</td><td class="num">5</td><td class="num">12</td><td><span class="badge chain">Optimism</span></td><td class="vol">$1.9M</td></tr>
+          <tr><td class="repo">OpenGrant Foundation</td><td class="num">9</td><td class="num">27</td><td><span class="badge chain">Gnosis</span></td><td class="vol">$3.3M</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

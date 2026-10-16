@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Pricing — Compare DeFi Risk · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-local bits for the compact hero, aggregate band, and trust strip */
+  .hero-compact .hero-inner { padding: 72px 0 64px; }
+  .agg-row { display: flex; align-items: center; gap: 18px; margin-top: 26px; flex-wrap: wrap; }
+  .btn-ghost-light { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost-light:hover { border-color: var(--violet); color: var(--violet-deep); box-shadow: var(--shadow); }
+  .agg-note { color: var(--ink-2); font-size: 14px; font-weight: 600; }
+  .board-note { color: var(--muted); font-size: 13px; font-weight: 600; margin: 18px 0 6px; }
+  .trust-strip { background: var(--paper-2); border-top: 1px solid var(--line); }
+  .trust-strip p { text-align: center; padding: 22px 0; margin: 0; font-size: 14px; font-weight: 700; color: var(--ink-2); }
+  .trust-strip a { color: var(--violet-deep); }
+  .trust-strip a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ECOSYSTEM BAR -->
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html">Homepage</a>
+      <a href="app.html">App</a>
+      <a href="deep.html">Deep</a>
+      <a href="futarchy.html">Futarchy</a>
+      <a href="opportunity.html">Opportunity</a>
+      <a href="risk.html" class="active">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+
+<!-- HERO (compact, dark) -->
+<section class="hero hero-dark hero-compact" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">RISK PRICING</span>
+    <h1>Compare the market's <span class="accent">price of risk</span>.</h1>
+    <p class="lede">Market-implied yearly Probability of Default (PD) for 33 DeFi assets, side by side. Assess exposure without decoding a single yes-or-no price.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#assets">View the asset board</a>
+      <a class="btn btn-ghost" href="#aggregate">Trade the aggregate</a>
+    </div>
+  </div>
+</section>
+
+<!-- AGGREGATE STAT BAND -->
+<section id="aggregate" style="padding:56px 0 20px">
+  <div class="wrap">
+    <div class="grid g3">
+      <div class="stat">
+        <div class="v">46.52%</div>
+        <div class="l">Chance that no listed asset defaults (annual)</div>
+      </div>
+      <div class="stat">
+        <div class="v">33</div>
+        <div class="l">Assets tracked</div>
+      </div>
+      <div class="stat">
+        <div class="v">4</div>
+        <div class="l">Risk categories</div>
+      </div>
+    </div>
+    <div class="agg-row">
+      <a class="btn btn-ghost-light" href="#">NO TO ALL</a>
+      <span class="agg-note">Trade the aggregate on Seer.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ASSET BOARD -->
+<section id="assets" style="padding-top:36px">
+  <div class="wrap">
+    <div class="kicker">MARKET-IMPLIED PD</div>
+    <h2>Every asset on one scale.</h2>
+    <p class="sub">Bars are drawn on a 0–20% annual PD scale; the tick marks the market-implied value.</p>
+
+    <div class="chips" style="margin-top:24px">
+      <button class="chip on" data-filter="all">All 33</button>
+      <button class="chip" data-filter="eth">ETH Based 7</button>
+      <button class="chip" data-filter="usd">USD Based 13</button>
+      <button class="chip" data-filter="btc">BTC Based 6</button>
+      <button class="chip" data-filter="funds">Funds Based 7</button>
+    </div>
+
+    <p class="board-note">12 of 33 tracked assets shown</p>
+
+    <div id="risk-list">
+      <div class="risk-row" data-cat="eth">
+        <div class="risk-asset">weETH</div>
+        <div class="rbar" title="Annual PD 0.09%"><i style="width:0.45%"></i><span class="tick" style="left:0.45%"></span></div>
+        <div class="risk-vals"><b>0.09%</b> ann. · 0.02% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="usd">
+        <div class="risk-asset">USDC</div>
+        <div class="rbar" title="Annual PD 0.04%"><i style="width:0.2%"></i><span class="tick" style="left:0.2%"></span></div>
+        <div class="risk-vals"><b>0.04%</b> ann. · &lt;0.01% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="usd">
+        <div class="risk-asset">USDF</div>
+        <div class="rbar" title="Annual PD 15.80%"><i style="width:79%"></i><span class="tick" style="left:79%"></span></div>
+        <div class="risk-vals"><b>15.80%</b> ann. · 4.21% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="eth">
+        <div class="risk-asset">avETH</div>
+        <div class="rbar" title="Annual PD 12.58%"><i style="width:62.9%"></i><span class="tick" style="left:62.9%"></span></div>
+        <div class="risk-vals"><b>12.58%</b> ann. · 3.30% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="eth">
+        <div class="risk-asset">stETH</div>
+        <div class="rbar" title="Annual PD 0.11%"><i style="width:0.55%"></i><span class="tick" style="left:0.55%"></span></div>
+        <div class="risk-vals"><b>0.11%</b> ann. · 0.03% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="eth">
+        <div class="risk-asset">rETH</div>
+        <div class="rbar" title="Annual PD 0.14%"><i style="width:0.7%"></i><span class="tick" style="left:0.7%"></span></div>
+        <div class="risk-vals"><b>0.14%</b> ann. · 0.04% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="usd">
+        <div class="risk-asset">USDT</div>
+        <div class="rbar" title="Annual PD 0.9%"><i style="width:4.5%"></i><span class="tick" style="left:4.5%"></span></div>
+        <div class="risk-vals"><b>0.9%</b> ann. · 0.22% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="usd">
+        <div class="risk-asset">PYUSD</div>
+        <div class="rbar" title="Annual PD 0.31%"><i style="width:1.55%"></i><span class="tick" style="left:1.55%"></span></div>
+        <div class="risk-vals"><b>0.31%</b> ann. · 0.08% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="btc">
+        <div class="risk-asset">cbBTC</div>
+        <div class="rbar" title="Annual PD 0.22%"><i style="width:1.1%"></i><span class="tick" style="left:1.1%"></span></div>
+        <div class="risk-vals"><b>0.22%</b> ann. · 0.06% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="btc">
+        <div class="risk-asset">tBTC</div>
+        <div class="rbar" title="Annual PD 0.48%"><i style="width:2.4%"></i><span class="tick" style="left:2.4%"></span></div>
+        <div class="risk-vals"><b>0.48%</b> ann. · 0.12% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="funds">
+        <div class="risk-asset">BUIDL-I</div>
+        <div class="rbar" title="Annual PD 0.06%"><i style="width:0.3%"></i><span class="tick" style="left:0.3%"></span></div>
+        <div class="risk-vals"><b>0.06%</b> ann. · 0.02% quart.</div>
+      </div>
+      <div class="risk-row" data-cat="funds">
+        <div class="risk-asset">JAAA</div>
+        <div class="rbar" title="Annual PD 1.4%"><i style="width:7%"></i><span class="tick" style="left:7%"></span></div>
+        <div class="risk-vals"><b>1.4%</b> ann. · 0.35% quart.</div>
+      </div>
+    </div>
+
+    <div class="risk-legend">
+      <span class="rl-low">LOW</span>
+      <span class="rl-mod">MODERATE</span>
+      <span class="rl-high">HIGH</span>
+      <span class="rl-crit">CRITICAL</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="wrap">
+    <p>Secured by Kleros &nbsp;·&nbsp; Outcome tokens trade on Seer &nbsp;·&nbsp; <a href="#">Download daily CSV</a></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Chip filtering for the asset board (vanilla JS, no frameworks)
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  var rows = document.querySelectorAll('.risk-row');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('on'); });
+      chip.classList.add('on');
+      var f = chip.getAttribute('data-filter');
+      rows.forEach(function (row) {
+        var show = (f === 'all') || (row.getAttribute('data-cat') === f);
+        row.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

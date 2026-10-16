@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opportunity Markets — Forecast the Winners · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Page-local: entry-name labels need more room than .outcome .lbl (52px) */
+  .mkt .outcome .lbl { width: 128px; flex: none; color: var(--ink); }
+  .mkt .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .mkt .card-foot { margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .step-t { font-weight: 800; font-size: 15px; margin-bottom: 8px; letter-spacing: -.01em; }
+  .note-strip { background: var(--violet-soft); }
+  .note-strip p { text-align: center; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+  .note-strip p span { color: var(--violet-deep); }
+  @media (max-width: 900px) {
+    .mkt .outcome .lbl { width: 104px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ECOSYSTEM BAR -->
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html">Homepage</a>
+      <a href="app.html">App</a>
+      <a href="deep.html">Deep</a>
+      <a href="futarchy.html">Futarchy</a>
+      <a href="opportunity.html" class="active">Opportunity</a>
+      <a href="risk.html">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero hero-dark" style="padding:0">
+  <svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+        <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+        <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+        <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="520" fill="url(#vp)"/>
+    <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+      <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+      <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+      <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+      <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+      <line x1="1440" y1="40" x2="720" y2="560"/>
+    </g>
+    <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+      <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+      <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+      <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+      <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+    </g>
+    <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+    <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">OPPORTUNITY MARKETS · CLOSED BETA</span>
+    <h1>Let the market <span class="accent">triage the entries</span>.</h1>
+    <p class="lede">When reviewing costs more than doing, traders set the odds of selection — price becomes the triage tool, the sponsor keeps the final decision.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contests">Browse live contests</a>
+      <a class="btn btn-ghost" href="#how">How it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <div class="kicker">HOW IT WORKS</div>
+    <h2>Five steps from call to decision.</h2>
+    <div class="steps" style="margin-top:28px">
+      <div class="step">
+        <div class="n">1</div>
+        <div class="step-t">Call for entries</div>
+        <p>A sponsor opens a contest and defines the brief.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <div class="step-t">Traders set the odds</div>
+        <p>Anyone backs the entries they believe will be selected.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <div class="step-t">Price becomes triage</div>
+        <p>Live odds rank every submission for reviewers.</p>
+      </div>
+      <div class="step">
+        <div class="n">4</div>
+        <div class="step-t">Sponsor decides</div>
+        <p>The final selection stays with the sponsor, always.</p>
+      </div>
+      <div class="step">
+        <div class="n">5</div>
+        <div class="step-t">Traders earn P&amp;L</div>
+        <p>Correct calls settle against the sponsor's decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE CONTESTS -->
+<section id="contests" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="kicker">LIVE NOW</div>
+    <h2>Contests trading today.</h2>
+    <div class="grid g3" style="margin-top:28px">
+
+      <div class="card mkt">
+        <div class="card-head mkt-meta"><span class="badge">LIVE</span><span>Identity</span></div>
+        <h3>Seer Rebrand — Identity Contest</h3>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">Electric Foundation</span><div class="obar"><i class="o-yes" style="width:64%"></i></div><span class="pct">64%</span></div>
+          <div class="outcome"><span class="lbl">Prism Works</span><div class="obar"><i class="o-yes" style="width:21%"></i></div><span class="pct">21%</span></div>
+          <div class="outcome"><span class="lbl">Northline Studio</span><div class="obar"><i class="o-yes" style="width:15%"></i></div><span class="pct">15%</span></div>
+        </div>
+        <div class="card-foot mkt-meta"><span>Prize pool 2.5 ETH</span><span>·</span><span>Closes Nov 14</span></div>
+      </div>
+
+      <div class="card mkt">
+        <div class="card-head mkt-meta"><span class="badge">LIVE</span><span>Naming</span></div>
+        <h3>Rename Risk Pricing</h3>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">Spread</span><div class="obar"><i class="o-yes" style="width:38%"></i></div><span class="pct">38%</span></div>
+          <div class="outcome"><span class="lbl">Hazard</span><div class="obar"><i class="o-yes" style="width:27%"></i></div><span class="pct">27%</span></div>
+          <div class="outcome"><span class="lbl">Undertow</span><div class="obar"><i class="o-yes" style="width:19%"></i></div><span class="pct">19%</span></div>
+          <div class="outcome"><span class="lbl">Cassandra</span><div class="obar"><i class="o-yes" style="width:16%"></i></div><span class="pct">16%</span></div>
+        </div>
+        <div class="card-foot mkt-meta"><span>Prize pool 0.5 ETH</span><span>·</span><span>Closes Oct 23</span></div>
+      </div>
+
+      <div class="card mkt">
+        <div class="card-head mkt-meta"><span class="badge">LIVE</span><span>Design</span></div>
+        <h3>Design Seer's Six Interfaces</h3>
+        <div class="outcomes">
+          <div class="outcome"><span class="lbl">Convergence</span><div class="obar"><i class="o-yes" style="width:52%"></i></div><span class="pct">52%</span></div>
+          <div class="outcome"><span class="lbl">Atelier Nord</span><div class="obar"><i class="o-yes" style="width:28%"></i></div><span class="pct">28%</span></div>
+          <div class="outcome"><span class="lbl">Studio Meridian</span><div class="obar"><i class="o-yes" style="width:20%"></i></div><span class="pct">20%</span></div>
+        </div>
+        <div class="card-foot mkt-meta"><span>Prize pool 0.5 ETH + 4,000 USDC</span><span>·</span><span>Closes Oct 23</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOTE STRIP -->
+<section class="note-strip">
+  <div class="wrap">
+    <p>Closed beta today. <span>Permissionless tomorrow.</span></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

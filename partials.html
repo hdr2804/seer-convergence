@@ -1,0 +1,114 @@
+<!-- ============================================================
+     CONVERGENCE shared snippets — copy these VERBATIM into each page.
+     Replace ACTIVE_PAGE with the current page's filename (index.html, app.html,
+     deep.html, futarchy.html, opportunity.html, risk.html).
+     ============================================================ -->
+
+<!-- 1) LOGO MARK (use inside .brand and in footer) -->
+<!-- <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+  <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+        stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+</svg> -->
+
+<!-- 2) ECOSYSTEM BAR (identical on every page) -->
+<!--
+<header class="eco-bar">
+  <div class="eco-inner">
+    <a class="brand" href="index.html">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+        <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      seer <small>EF</small>
+    </a>
+    <nav class="eco-nav">
+      <a href="index.html" class="ACTIVE_HOME">Homepage</a>
+      <a href="app.html" class="ACTIVE_APP">App</a>
+      <a href="deep.html" class="ACTIVE_DEEP">Deep</a>
+      <a href="futarchy.html" class="ACTIVE_FUT">Futarchy</a>
+      <a href="opportunity.html" class="ACTIVE_OPP">Opportunity</a>
+      <a href="risk.html" class="ACTIVE_RISK">Risk Pricing</a>
+    </nav>
+    <button class="btn-connect">Connect</button>
+  </div>
+</header>
+Set exactly ONE class to "active" (keep the ACTIVE_* token replaced, e.g. class="active" on the current page link, plain href for others).
+-->
+
+<!-- 3) CONVERGING LIGHT LINES (place inside .hero as first child, dark heroes only) -->
+<!--
+<svg class="hero-lines" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="vp" cx="50%" cy="108%" r="75%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity=".55"/>
+      <stop offset="45%" stop-color="#7C3AED" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1440" height="520" fill="url(#vp)"/>
+  <g stroke="#A78BFA" stroke-width="1.6" opacity=".5">
+    <line x1="0" y1="40" x2="720" y2="560"/><line x1="120" y1="0" x2="720" y2="560"/>
+    <line x1="330" y1="0" x2="720" y2="560"/><line x1="540" y1="0" x2="720" y2="560"/>
+    <line x1="720" y1="0" x2="720" y2="560"/><line x1="900" y1="0" x2="720" y2="560"/>
+    <line x1="1110" y1="0" x2="720" y2="560"/><line x1="1320" y1="0" x2="720" y2="560"/>
+    <line x1="1440" y1="40" x2="720" y2="560"/>
+  </g>
+  <g stroke="#7C3AED" stroke-width="1" opacity=".3">
+    <line x1="0" y1="160" x2="720" y2="560"/><line x1="240" y1="0" x2="720" y2="560"/>
+    <line x1="430" y1="0" x2="720" y2="560"/><line x1="640" y1="0" x2="720" y2="560"/>
+    <line x1="810" y1="0" x2="720" y2="560"/><line x1="1010" y1="0" x2="720" y2="560"/>
+    <line x1="1210" y1="0" x2="720" y2="560"/><line x1="1440" y1="160" x2="720" y2="560"/>
+  </g>
+  <circle cx="720" cy="560" r="90" fill="#A78BFA" opacity=".35"/>
+  <circle cx="720" cy="560" r="40" fill="#C4B5FD" opacity=".5"/>
+</svg>
+-->
+
+<!-- 4) FOOTER (identical on every page) -->
+<!--
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px">
+          <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="20,3 35,11.5 35,28.5 20,37 5,28.5 5,11.5" stroke="#7C3AED" stroke-width="3" fill="rgba(124,58,237,.12)"/>
+            <path d="M27 14.5c-1.5-2-4.2-3-7-3-4 0-7 2-7 5.2 0 6.8 14 3.4 14 10.2 0 3.4-3.2 5.6-7.4 5.6-3.4 0-6.4-1.4-8-3.8"
+                  stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+          </svg>
+          seer
+        </a>
+        <p style="font-size:14px;max-width:280px">Prediction markets for distilled human judgement. One protocol, six interfaces, one design language.</p>
+      </div>
+      <div><h5>ECOSYSTEM</h5>
+        <a href="app.html">Seer App</a><a href="deep.html">Deep</a><a href="futarchy.html">Futarchy</a>
+        <a href="opportunity.html">Opportunity Markets</a><a href="risk.html">Risk Pricing</a>
+      </div>
+      <div><h5>PROTOCOL</h5>
+        <a href="#">Documentation</a><a href="#">Developers</a><a href="#">Contracts</a><a href="#">Audits</a>
+      </div>
+      <div><h5>COMMUNITY</h5>
+        <a href="#">Blog</a><a href="#">X / Twitter</a><a href="#">Discord</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>Convergence — a unified Seer design concept on the Electric Foundation brand kit. Demo mockup; not affiliated with Seer.</span>
+      <span>Manrope · #7C3AED · #17171C</span>
+    </div>
+  </div>
+</footer>
+-->
+
+<!-- 5) PAGE HEAD TEMPLATE -->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGE TITLE — Seer · Convergence</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+-->
